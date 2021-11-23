@@ -1,0 +1,91 @@
+@use "sass:math";
+
+////////////////////
+// インナー幅設定
+////////////////////
+// レイアウト幅
+$inner: 1100px;
+
+// 余白
+$padding-pc: 25px;
+$padding-sp: 20px;
+
+
+////////////////////
+// フォント設定
+////////////////////
+
+$base-font-family: "";
+$second-font-family: "";
+
+body {
+  font-family: $base-font-family;
+}
+
+// フォントウェイト
+$regular: 300;
+$normal: 400;
+$bold: 700;
+
+////////////////////
+// 色の指定
+////////////////////
+
+// 透過度
+$opacity: 0.6;
+$hover-opacity: 0.8;
+
+//汎用色
+$black: #111;
+$white: #fff;
+
+
+////////////////////
+// メディアクエリとブレークポイントの設定
+////////////////////
+
+//ブレイクポイント
+$breakpoints: (
+  sm: 600,
+  md: 768,
+  lg: 1024,
+  xl: 1440,
+);
+
+
+//メディアクエリー
+$mediaquerys: (
+  sm: "screen and (min-width: #{map-get($breakpoints,'sm')}px)",
+  md: "screen and (min-width: #{map-get($breakpoints,'md')}px)",
+  lg: "screen and (min-width: #{map-get($breakpoints,'lg')}px)",
+  xl: "screen and (min-width: #{map-get($breakpoints,'xl')}px)",
+);
+
+@function rem($pixels) {
+  @return math.div($pixels, 16) * 1rem;
+}
+
+
+@mixin mq($mediaquery: md) {
+  @media #{map-get($mediaquerys, $mediaquery)} {
+    @content;
+  }
+}
+
+////////////////////
+// 非表示設定
+////////////////////
+
+.u-desktop {
+  display: none;
+  @include mq("md") {
+    display: block;
+  }
+}
+
+//モバイルのみ表示
+.u-mobile {
+  @include mq("md") {
+    display: none;
+  }
+}

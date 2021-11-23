@@ -1,0 +1,13 @@
+@use "sass:math";
+
+// 数値のみを取り出す
+@function strip-unit($number) {
+  @if type-of($number) == "number" and not unitless($number) {
+    @return math.div($number, $number * 0 + 1);
+  }
+  @return $number;
+}
+
+@function vw($window_width, $size) {
+	@return math.div($size, $window_width) * 100vw;
+}

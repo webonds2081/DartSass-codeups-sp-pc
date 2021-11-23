@@ -1,0 +1,18 @@
+@use "../global" as *;
+.appp {
+  margin: 1px;
+}
+.appp {
+  margin: 1px;
+}
+
+.test {
+  font-size: 1111rem;
+}
+
+.test1234 {
+  width: $inner;
+  @include mq(md){
+    width: 11111111111px;
+  }
+}
