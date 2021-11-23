@@ -1,4 +1,4 @@
-@use "../global" as *;
+@use "global" as *;
 .appp {
   margin: 1px;
 }
@@ -12,7 +12,7 @@
 
 .test1234 {
   width: $inner;
-  @include mq(md){
+  @include mq(md) {
     width: 11111111111px;
   }
 }
