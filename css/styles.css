@@ -22,7 +22,7 @@ body {
 html {
   font-size: 16px;
 }
-@media (max-width: 375) {
+@media (max-width: 375px) {
   html {
     font-size: 4.2666666667vw;
   }
@@ -191,8 +191,7 @@ select::-ms-expand {
 .test {
   font-size: 20px;
   font-size: 1.25rem;
-  background-color: #fff;
+  background-color: #111;
   color: #fff;
-  color: #111;
 }
 /*# sourceMappingURL=styles.css.map */
