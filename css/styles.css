@@ -188,28 +188,11 @@ select::-ms-expand {
   }
 }
 
-.appp {
-  margin: 1px;
-}
-
-.appp {
-  margin: 1px;
-}
-
 .test {
-  font-size: 17776px;
-  font-size: 1111rem;
+  font-size: 20px;
+  font-size: 1.25rem;
+  background-color: #fff;
+  color: #fff;
+  color: #111;
 }
-
-.test1234 {
-  width: 1100px;
-}
-@media screen and (min-width: 768px) {
-  .test1234 {
-    width: 11111111111px;
-  }
-}
-
-.testtestaaa {
-  width: 1100px;
-}
+/*# sourceMappingURL=styles.css.map */
