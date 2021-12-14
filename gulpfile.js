@@ -95,5 +95,36 @@ const watchFiles = () => {
     watch(srcPath.html, series(browserSyncReload))
 }
 
+// 画像だけ削除
+const del = require('del');
+const delPath = {
+    // css: '../dist/css/',
+    // js: '../dist/js/script.js',
+    // jsMin: '../dist/js/script.min.js',
+    img: './images/',
+    // html: '../dist/*.html',
+    // wpcss: `../${themeName}/assets/css/`,
+    // wpjs: `../${themeName}/assets/js/script.js`,
+    // wpjsMin: `../${themeName}/assets/js/script.min.js`,
+    // wpImg: `../${themeName}/assets/images/`
+}
+const clean = (done) => {
+    del(delPath.img, { force: true, });
+    // del(delPath.css, { force: true, });
+    // del(delPath.js, { force: true, });
+    // del(delPath.jsMin, { force: true, });
+    // del(delPath.html, { force: true, });
+    // del(delPath.wpcss, { force: true, });
+    // del(delPath.wpjs, { force: true, });
+    // del(delPath.wpjsMin, { force: true, });
+    // del(delPath.wpImg, { force: true, });
+    done();
+};
+
+
 // npx gulpで出力する内容
-exports.default = series(series(cssSass, imgImagemin), parallel(watchFiles, browserSyncFunc));
+exports.default = series(series(clean, cssSass, imgImagemin), parallel(watchFiles, browserSyncFunc));
+
+
+// npx gulp del → 画像最適化（重複を削除）
+// exports.del = series(series(clean, cssSass, imgImagemin), parallel(watchFiles, browserSyncFunc));
